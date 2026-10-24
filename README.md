@@ -19,7 +19,24 @@ En el Taller 2 el asistente de EcoMarket respondía cualquier consulta con RAG, 
 | 2. Implementación | [docs/fase2_implementacion.md](docs/fase2_implementacion.md) · [src/agente/](src/agente/) · [results/](results/) | Código por sección, manejo de éxito y error, evaluación del comportamiento, limitaciones y suposiciones |
 | 3. Análisis crítico | [docs/fase3_analisis_critico.md](docs/fase3_analisis_critico.md) | 8 riesgos de dar acciones a la IA con su mitigación; monitoreo y alertas; propuestas de mejora |
 | 4. Despliegue | [docs/fase4_despliegue.md](docs/fase4_despliegue.md) · [app_web.py](app_web.py) | Elección de Streamlit, la interfaz y el recorrido de la demostración |
-| Video | [docs/guion_video.md](docs/guion_video.md) | Guion de la grabación (≤ 10 min) |
+
+## Estado de la entrega
+
+| Componente | Estado | Evidencia |
+|---|---|---|
+| Fase 1: herramientas, marco y flujo del agente | ✅ Completa | [docs/fase1_arquitectura_agente.md](docs/fase1_arquitectura_agente.md) |
+| Fase 2: agente integrado al código del Taller 2 | ✅ Implementado y ejecutable | [src/agente/](src/agente/) · [docs/fase2_implementacion.md](docs/fase2_implementacion.md) |
+| Fase 2: pruebas de las herramientas y del validador, sin LLM | ✅ 32 de 32 | [tests/test_herramientas.py](tests/test_herramientas.py) |
+| Fase 2: evaluación del comportamiento (cuándo usar herramientas y cuándo responder directo) | ✅ 19 de 19 casos en la versión final, tras 3 iteraciones documentadas | [results/resultados_agente.md](results/resultados_agente.md) |
+| Fase 3: riesgos, monitoreo y propuestas de mejora | ✅ Completa, con hallazgos reales de las pruebas | [docs/fase3_analisis_critico.md](docs/fase3_analisis_critico.md) |
+| Fase 4: interfaz Streamlit | ✅ Probada de extremo a extremo en el navegador | [app_web.py](app_web.py) · [docs/img/](docs/img/) |
+| Video de demostración (≤ 10 min) | Se entrega aparte | — |
+
+**Principales hallazgos** (detalle en la [Fase 2 §5](docs/fase2_implementacion.md#5-evaluación-del-comportamiento) y la [Fase 3](docs/fase3_analisis_critico.md)):
+- **Las reglas de negocio nunca fallaron.** En todas las corridas, ninguna etiqueta se emitió cuando no correspondía: la política se aplica en código, no en el prompt.
+- **Lo que hubo que iterar fue la conducta del LLM**: cuándo consultar el pedido, qué preguntar y cómo interpretar a un cliente molesto. Se pasó de 17 a 19 de 19 casos en cuatro corridas.
+- **Evaluar solo qué herramientas usó el agente no basta.** En una corrida usó la herramienta correcta y aun así dijo "7 días" en lugar de 10. La evaluación ahora revisa también el contenido.
+- **En la prueba de la interfaz, el agente inventó una etiqueta completa** sin llamar a la herramienta que la genera. Se agregó un validador de salida que bloquea cualquier RMA o enlace sin respaldo en el registro.
 
 ## Arquitectura
 
@@ -104,7 +121,6 @@ python app.py preguntar "<texto>"                  # Cadena RAG (Taller 2)
 │   ├── fase2_implementacion.md        Fase 2: código, manejo de errores, evaluación, limitaciones
 │   ├── fase3_analisis_critico.md      Fase 3: riesgos, monitoreo, mejoras
 │   ├── fase4_despliegue.md            Fase 4: Streamlit y demostración
-│   ├── guion_video.md                 Guion del video
 │   └── img/                           Capturas de la interfaz
 ├── src/
 │   ├── agente/                        ★ Nuevo en el Proyecto Final
