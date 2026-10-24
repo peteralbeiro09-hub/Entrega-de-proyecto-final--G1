@@ -1,0 +1,8 @@
+# Configuración de la interfaz (streamlit run app_web.py)
+[server]
+headless = true
+# Sin vigilancia de archivos: evita que Streamlit inspeccione los módulos de transformers/torch al iniciar.
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false

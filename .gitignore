@@ -1,0 +1,27 @@
+# Secretos
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Índice vectorial: se regenera con `python app.py indexar`
+chroma_db/
+
+# Caché de trabajo del cliente LLM
+results/.cache_respuestas.json
+
+# El enunciado del taller no se publica; el único PDF del repo es la política de devoluciones de data/
+*.pdf
+!data/politica_devoluciones.pdf
+
+# Registros de ejecución local
+*.log
+
+# Proyecto Final: registros de ejecución local (las evidencias quedan en results/*.md)
+logs/
+data/etiquetas/
+results/.registros_evaluacion/
+.pytest_cache/
