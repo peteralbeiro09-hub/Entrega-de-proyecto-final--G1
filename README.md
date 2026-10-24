@@ -57,8 +57,8 @@ Requisito: Python 3.11 o superior (probado con 3.13).
 
 ```bash
 # 1. Clonar y entrar
-git clone <url-de-este-repositorio>
-cd <carpeta-del-repositorio>
+git clone https://github.com/peteralbeiro09-hub/Entrega-de-proyecto-final--G1.git
+cd Entrega-de-proyecto-final--G1
 
 # 2. Entorno virtual
 python -m venv .venv
