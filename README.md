@@ -30,7 +30,7 @@ En el Taller 2 el asistente de EcoMarket respondía cualquier consulta con RAG, 
 | Fase 2: evaluación del comportamiento (cuándo usar herramientas y cuándo responder directo) | ✅ 19 de 19 casos en la versión final, tras 3 iteraciones documentadas | [results/resultados_agente.md](results/resultados_agente.md) |
 | Fase 3: riesgos, monitoreo y propuestas de mejora | ✅ Completa, con hallazgos reales de las pruebas | [docs/fase3_analisis_critico.md](docs/fase3_analisis_critico.md) |
 | Fase 4: interfaz Streamlit | ✅ Probada de extremo a extremo en el navegador | [app_web.py](app_web.py) · [docs/img/](docs/img/) |
-| Video de demostración (≤ 10 min) | Se entrega aparte | — |
+| Video de demostración | https://youtu.be/mFzQh1T4HSQ |
 
 **Principales hallazgos** (detalle en la [Fase 2 §5](docs/fase2_implementacion.md#5-evaluación-del-comportamiento) y la [Fase 3](docs/fase3_analisis_critico.md)):
 - **Las reglas de negocio nunca fallaron.** En todas las corridas, ninguna etiqueta se emitió cuando no correspondía: la política se aplica en código, no en el prompt.
